@@ -1,7 +1,14 @@
 import Footer from './components/Footer'
 import InputBox from './components/InputBox'
-import Plane from './components/plane'
+import Tasks from './components/Tasks'
+import { nanoid } from 'nanoid'
 
+const defaultItems = [
+  { id: nanoid(), title: 'walk the dog', isDone: false },
+  { id: nanoid(), title: 'wash dishes', isDone: false },
+  { id: nanoid(), title: 'drink coffee', isDone: true },
+  { id: nanoid(), title: 'take a nap', isDone: false },
+]
 function App() {
   return (
     <>
@@ -12,9 +19,7 @@ function App() {
 
             <InputBox />
 
-            <Plane />
-            <Plane />
-            <Plane />
+            <Tasks items={defaultItems} />
           </div>
         </div>
       </div>

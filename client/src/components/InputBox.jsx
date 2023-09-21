@@ -1,11 +1,18 @@
 import { useState } from 'react'
+import { useCreateTask } from './reactQuery'
 
 const InputBox = () => {
   const [newTask, setNewTask] = useState('')
+  const { createTask } = useCreateTask()
 
   const hundleSubmit = (e) => {
     e.preventDefault()
-    console.log(newTask)
+
+    createTask(newTask, {
+      onSuccess: () => {
+        setNewTask('')
+      },
+    })
   }
 
   return (
